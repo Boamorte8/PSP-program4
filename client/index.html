@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pspApp">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Programas Pruebas de Software</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="bower_components/materialize/bin/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <!-- <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
+  <base href="/">
+</head>
+
+<body>
+
+
+  <nav class="teal" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/" class="brand-logo">Programas Pruebas de Software</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="psp4">Programa PSP-4</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="psp4">Programa PSP-4</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+<!-- angu: {{angularjs}} -->
+	<div ui-view=""></div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/materialize/bin/materialize.js"></script>
+	<script type="text/javascript" src="bower_components/angular-materialize/src/angular-materialize.js"></script>
+  <script src="../bower_components/ng-file-upload/ng-file-upload.js"></script>
+
+	<!-- CONFIG FILES -->
+  <script type="text/javascript" src="app/app.js"></script>
+
+  <!-- SERVICES -->
+  <script type="text/javascript" src="services/statistics.js"></script>
+
+  <!-- ROUTES -->
+  <script type="text/javascript" src="app/home/home.js"></script>
+  <script type="text/javascript" src="app/PSP4/psp4.js"></script>
+
+
+  <!-- CONTROLLERS -->
+  <script type="text/javascript" src="app/PSP4/psp4.controller.js"></script>
+  <script type="text/javascript" src="app/home/home.controller.js"></script>
+
+  <script type="text/javascript">
+
+  	(function($){
+  $(function(){
+
+    $('.button-collapse').sideNav();
+    $('.parallax').parallax();
+
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
+
+  </script>
+
+  </body>
+</html>
+
+
+
+<!--
+	angu: {{angularjs}}
+	<div ui-view=""></div>
+
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="bower_components/materialize/bin/materialize.js"></script>
+
+	<script type="text/javascript" src="app/app.js"></script>
+
+	<script type="text/javascript" src="app/home/home.js"></script>
+	<script type="text/javascript" src="app/home/home.controller.js"></script> -->

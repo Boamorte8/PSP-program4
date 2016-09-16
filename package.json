@@ -1,0 +1,36 @@
+{
+  "name": "PSPProgram4",
+  "version": "1.0.0",
+  "description": "The fourth program of PSP",
+  "main": "server.js",
+  "author": "James Garzon, Esteban Salazar, Sergio Loaiza",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "config": "^1.20.1",
+    "ejs": "^2.3.3",
+    "express": "^4.13.4",
+    "morgan": "^1.7.0",
+    "multer": "^1.2.0",
+    "require.js": "^1.0.0"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "karma": "^1.2.0",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^1.1.1",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "mocha": "^2.4.5"
+  },
+  "engines": {
+    "node": "^6.5.0",
+    "npm": "^3.10.3"
+  },
+  "scripts": {
+    "start": "export NODE_ENV=dev&& (nodemon server/server.js || node server/server.js)",
+    "start_windows": "set NODE_ENV=dev&& (nodemon server/server.js || node server/server.js)",
+    "test": "mocha server/test --timeout 10000 --recursive"
+  }
+}

@@ -1,0 +1,40 @@
+<h2 class="center-align">Programa 4</h2>
+
+<div class="container z-depth-1">
+	<br>
+	<div class="row center-align">
+		<div class="">
+			<b>DATOS</b>
+			<br>
+			<a class="waves-effect waves-light btn  indigo" ngf-select="vm.getStatistics($file)" >Seleccionar datos <i class="material-icons right">storage</i></a>
+			<br>
+		</div>
+	</div>
+	<br>
+	<div class="card-panel" ng-if="vm.ranges">
+		<table class="striped center-align">
+			<thead>
+				<tr>
+					<th class="center-align" data-field="vs">Very Small</th>
+					<th class="center-align" data-field="small">Small</th>
+					<th class="center-align" data-field="medium">Medium</th>
+					<th class="center-align" data-field="larg">Large</th>
+					<th class="center-align" data-field="vl">Very Large</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr class="center-align">
+					<td class="center-align">{{vm.ranges.verySmall | number:4 }}</td>
+					<td class="center-align">{{vm.ranges.small | number:4 }}</td>
+					<td class="center-align">{{vm.ranges.medium | number:4 }}</td>
+					<td class="center-align">{{vm.ranges.large | number:4 }}</td>
+					<td class="center-align">{{vm.ranges.veryLarge | number:4 }}</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+	<br>
+
+</div>
