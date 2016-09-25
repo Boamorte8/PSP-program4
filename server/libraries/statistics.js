@@ -11,9 +11,35 @@ function Statistics() {
 
   function getGamma(equix) {
     if (equix == null) {
-      throw new Error('No hay valor a calcular');
+      throw new Error('There isnt a param');
+    }
+    else if (typeof(equix) != 'number') {
+      throw new Error('The param isn´t a number');
+    }
+    else if (typeof(equix) === 'number' && equix < 0) {
+      throw new Error('The param is a negative number');
+    }
+    else if (typeof(equix) === 'number' && equix >= 0) {
+      if (equix == 0) {
+        return 1;
+      }
+      else if (equix > 0 && equix < 1) {
+        return Math.sqrt(Math.PI);
+      }
+      else if (equix >= 1) {
+        if ((equix - 1) == 0 ) {
+          return getGamma(equix - 1);
+        }
+        else {
+          return (equix - 1) * (getGamma(equix - 1));
+        }
+      }
+    }
+    else {
+      throw new Error('It cant be processed');
     }
   }
+
 
   function getRanges(list){
     var respuesta = {};

@@ -13,15 +13,66 @@ describe('getGamma', () => {
     });
 
     describe('getGamma without param', function() {
-      it('Response should show error', function() {
+      it('Response should show exception', function() {
         let statistics = new Statistics();
-        assert.throws(function() { statistics.getGamma() }, Error, 'No hay valor a calcular');
+        assert.throws(function() { statistics.getGamma() }, Error, 'There isnt a param');
       });
     });
 
+    describe('getGamma with param equal to a string', function() {
+      it('Response should show exception', function() {
+        let numberTest = 'Hola';
+        let statistics = new Statistics();
+        assert.throws(function() { statistics.getGamma(numberTest) }, Error, 'The param isn´t a number');
+      });
+    });
 
+    describe('getGamma with param equal to a negative number', function() {
+      it('Response should show exception', function() {
+        let numberTest = -5;
+        let statistics = new Statistics();
+        assert.throws(function() { statistics.getGamma(numberTest) }, Error, 'The param is a negative number');
+      });
+    });
 
+    describe('getGamma with param equal to a number = 0', function() {
+      it('Response should show 1', function() {
+        let numberTest = 0;
+        let statistics = new Statistics();
+        let response = statistics.getGamma(numberTest);
+        assert.equal(response, 1);
+      });
+    });
 
+    describe('getGamma with param equal to a number = 0.5', function() {
+      it('Response should show Math.sqrt(Math.PI)', function() {
+        let numberTest = 0.5;
+        let sqrtpi = Math.sqrt(Math.PI);
+        let statistics = new Statistics();
+        let response = statistics.getGamma(numberTest);
+        assert.equal(response, sqrtpi);
+      });
+    });
+
+    describe('getGamma with param equal to a integer number = 5', function() {
+      it('Response should show 24', function() {
+        let numberTest = 5;
+        let resp = 24;
+        let statistics = new Statistics();
+        let response = statistics.getGamma(numberTest);
+        assert.equal(response, resp);
+      });
+    });
+
+    describe('getGamma with param equal to a decimal number = 4.5', function() {
+      it('Response should show 11.63172839656745', function() {
+        let numberTest = 4.5;
+        let resp = 11.63172839656745;
+        let statistics = new Statistics();
+        let response = statistics.getGamma(numberTest);
+        assert.equal(response, resp);
+      });
+    });
 
 });
 
