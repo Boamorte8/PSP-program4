@@ -1,9 +1,19 @@
 function Statistics() {
+
+  this.getGamma = getGamma;
+  //---------------------------------------
   this.getRanges = getRanges;
   this.determinarPartes = determinarPartes;
   this.getLogAverage = getLogAverage;
   this.getVariance = getVariance;
   this.getCovariance = getCovariance;
+
+
+  function getGamma(equix) {
+    if (equix == null) {
+      throw new Error('No hay valor a calcular');
+    }
+  }
 
   function getRanges(list){
     var respuesta = {};
