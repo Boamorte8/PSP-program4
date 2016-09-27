@@ -1,6 +1,9 @@
 function Statistics() {
 
   this.getGamma = getGamma;
+  this.getFPart1 = getFPart1;
+  this.getFPart2 = getFPart2;
+  this.getT = getT;
   //---------------------------------------
   this.getRanges = getRanges;
   this.determinarPartes = determinarPartes;
@@ -40,6 +43,95 @@ function Statistics() {
     }
   }
 
+  function getFPart1(dof){
+    if (dof == null) {
+      throw new Error('There isnt dof');
+    }
+    else if (typeof(dof) != 'number') {
+      throw new Error('dof isn´t a number');
+    }
+    else if (typeof(dof) === 'number' && dof == 0) {
+      throw new Error('dof is zero');
+    }
+    else if (typeof(dof) === 'number' && dof < 0) {
+      throw new Error('dof is a negative number');
+    }
+    else if (typeof(dof) === 'number' && dof > 0) {
+      let part1 = Math.round(getGamma((dof+1)/2) / (Math.sqrt(dof*Math.PI)* getGamma(dof/2))*1000000)/1000000;
+      return part1;
+    }
+    else {
+      throw new Error('It cant be processed');
+    }
+  }
+
+  function getFPart2(dof, xi){
+    if (dof == null || xi == null) {
+      throw new Error('There isnt a param(or params)');
+    }
+    else if (typeof(dof) != 'number' || typeof(xi) != 'number') {
+      throw new Error('A param(or params) isn´t a number');
+    }
+    else if (typeof(dof) === 'number' && dof == 0) {
+      throw new Error('dof is zero');
+    }
+    else if (typeof(dof) === 'number' && dof < 0) {
+      throw new Error('dof is a negative number');
+    }
+    else if (typeof(dof) === 'number' && dof >= 0 && typeof(xi) === 'number') {
+      let part2 = Math.round(Math.pow(( 1 + (Math.pow(xi,2)/dof)),-(dof+1)/2) *100000)/100000;
+      return part2;
+    }
+    else {
+      throw new Error('It cant be processed');
+    }
+  }
+  
+  function getT(dof, x) {
+    if (dof == null || x == null) {
+      throw new Error('There isnt a param(or params)');
+    }
+    else if (typeof(dof) != 'number' || typeof(x) != 'number') {
+      throw new Error('A param(or params) isn´t a number');
+    }
+    else if (typeof(dof) === 'number' && dof == 0) {
+      throw new Error('dof is zero');
+    }
+    else if (typeof(dof) === 'number' && dof < 0) {
+      throw new Error('dof is a negative number');
+    }
+    else if (typeof(dof) === 'number' && dof >= 0 && typeof(x) === 'number') {
+      let fPart1 = getFPart1(dof);
+      let e = 0.00001;
+      let nSeg = 10;
+
+      function getTn (nSeg) {
+        let w=x/nSeg;
+        let t=fPart1;
+        for (var i=1;i<=nSeg-1;i=i+2)
+        {
+          t+=4*fPart1*getFPart2(dof,i*w);
+        }
+        for (var i=2;i<=nSeg-2;i=i+2)
+        {
+          t+=2*fPart1*getFPart2(dof,i*w);
+        }
+        return (Math.round((w/3)*(t+fPart1*getFPart2(dof, x))*100000)/100000);
+      }
+
+      let t1;
+      let t2;
+      do {
+        t1= getTn(nSeg);
+        t2= getTn(nSeg*2);
+        nSeg=nSeg*2;
+      } while (Math.abs(t1-t2)>=e);
+      return t2;
+    }
+    else {
+      throw new Error('It cant be processed');
+    }
+  }
 
   function getRanges(list){
     var respuesta = {};

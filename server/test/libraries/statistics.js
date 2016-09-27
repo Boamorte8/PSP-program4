@@ -76,6 +76,54 @@ describe('getGamma', () => {
 
 });
 
+describe('getFPart1', () => {
+    beforeEach((done) => {
+        done();
+    });
+
+    describe('getFPart1 with dof=9', function () {
+        it('Response should show 0.388035', function () {
+            let dof = 9;
+            let statistics = new Statistics();
+            let response = statistics.getFPart1(dof);
+            assert.equal(0.388035, response);
+        });
+    });
+});
+
+describe('getFPart2', () => {
+    beforeEach((done) => {
+        done();
+    });
+
+    describe('getFPart2 with dof=9 and xi=0.11', function () {
+        it('Response should show 0.9933', function () {
+            let dof = 9;
+            let xi = 0.11;
+            let statistics = new Statistics();
+            let response = statistics.getFPart2(dof, xi);
+            assert.equal(0.9933, response);
+        });
+    });
+});
+
+describe('getT', () => {
+    beforeEach((done) => {
+        done();
+    });
+
+    describe('getT with dof=9 and xi=1.1', function () {
+        it('Response should show 0.35006', function () {
+            let dof = 9;
+            let x = 1.1;
+            let statistics = new Statistics();
+            let response = statistics.getT(dof, x);
+            assert.equal(0.35006, response);
+        });
+    });
+});
+
+
 // describe('GetRanges', () => {
 //     beforeEach((done) => {
 //       done();
