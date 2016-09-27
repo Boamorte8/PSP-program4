@@ -11,6 +11,16 @@ class PSP4Component {
   	this.getEstimated(file);
 
   }
+
+  getTfunction(dof, x){
+    this.Stats.getT(dof, x)
+    .then(res =>{
+      this.res = res;
+    })
+    .catch(err=>{
+      console.log(error);
+    })
+  }
 }
 
 angular.module('pspApp')

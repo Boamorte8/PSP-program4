@@ -3,7 +3,7 @@
 <div class="container z-depth-1">
 	<div class="container">
 		<div class="row">
-			<div class="col s1">
+			<div class="col s2">
 				<!-- <div class="row">
 	<div class="input-field col s6">
 		<input value="Alvin" id="first_name2" type="text" class="validate">
@@ -13,23 +13,23 @@
 <!-- <b> X: </b>
 		<input type="number" name="name" value="1" style="margin-bottom:1px"> -->
 		<div class="input-field">
-			<input  id="first_name2" type="number" class="validate">
+			<input  id="first_name2" type="number"  ng-model="vm.x">
 			<label class="" for="first_name2">X</label>
 		</div>
 				<!-- 5 -->
 				<!-- <br> -->
-				<a href="#" class=""style="font-size:150px; margin-top:2px; line-height:100%;" initial="color:red">
+				<a href="#" class=""style="font-size:150px; margin-top:2px; line-height:100%;">
 					<span >&int;</span>
 				</a>
 				<br>
 				<h5>0</h5>
 			</div>
-			<div class="col s11">
+			<div class="col s10">
 				<div class="row">
 					<div class="col s4 offset-s2">
 
 					    <div class="input-field">
-					      <input value="Alvin" id="first_name2" type="number" class="validate">
+					      <input value="Alvin" id="first_name2" type="number" class="validate" ng-model="vm.dof">
 					      <label class="" for="first_name2">Grado de libertad</label>
 					    </div>
 					</div>
@@ -37,15 +37,15 @@
 				<br>
 				<div class="row">
 					<div class="col s4">
-						<img src="http://www.clipartkid.com/images/248/higgsnely-planet-guide-cuentos-cu-nticos-PI4mKT-clipart.GIF" class="responsive-img" alt="" />
+						<img src="assets/images/integral.GIF" class="responsive-img" alt="" />
 					</div>
 					<div class="col s2">
-						<a href="#" class=""style="font-size:80px; margin-top:2px; line-height:100%;" >
+						<a href="" class=""style="font-size:80px; margin-top:2px; line-height:100%;" ng-click="vm.getTfunction(vm.dof, vm.x)">
 							<span >=</span>
 						</a>
 					</div>
 					<div class="col s6">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						<h1>{{vm.res}}</h1>
 					</div>
 
 				</div>

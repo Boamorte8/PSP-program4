@@ -44,7 +44,7 @@ app.route('/*')
     res.sendFile(path.resolve(app.get('appPath') + '/index.html'));
   });
 
-app.route("/statistics/calculate").post(upload.single('data'),statistic.getRanges);
+app.route("/statistics/integral").post(statistic.getRanges);
     // .post(book.postBook);
 // app.route("/book/:id")
 //     .get(book.getBook)
