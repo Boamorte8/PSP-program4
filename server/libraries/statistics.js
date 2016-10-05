@@ -94,13 +94,16 @@ function Statistics() {
     else if (typeof(dof) != 'number' || typeof(x) != 'number') {
       throw new Error('A param(or params) isn´t a number');
     }
-    else if (typeof(dof) === 'number' && dof == 0) {
+    //else if (typeof(dof) === 'number' && dof == 0) {
+    else if (dof == 0) {
       throw new Error('dof is zero');
     }
-    else if (typeof(dof) === 'number' && dof < 0) {
+    //else if (typeof(dof) === 'number' && dof < 0) {
+    else if (dof < 0) {
       throw new Error('dof is a negative number');
     }
-    else if (typeof(dof) === 'number' && dof >= 0 && typeof(x) === 'number') {
+    //else if (typeof(dof) === 'number' && dof >= 0 && typeof(x) === 'number') {
+    else {
       let fPart1 = getFPart1(dof);
       let e = 0.00001;
       let nSeg = 10;
