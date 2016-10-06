@@ -131,9 +131,9 @@ function Statistics() {
       } while (Math.abs(t1-t2)>=e);
       return t2;
     }
-    else {
+    /*else {
       throw new Error('It cant be processed');
-    }
+    }*/
   }
 
   function getRanges(list){
