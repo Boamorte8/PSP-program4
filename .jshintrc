@@ -57,6 +57,9 @@
         "angular": false,
         "$": false,
         "Materialize": false,
-        "alert": false
+        "alert": false,
+        "describe": false,
+        "it" : false,
+        "beforeEach": false
     }
 }

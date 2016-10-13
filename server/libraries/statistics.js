@@ -86,7 +86,7 @@ function Statistics() {
       throw new Error('It cant be processed');
     }
   }
-  
+
   function getT(dof, x) {
     if (dof == null || x == null) {
       throw new Error('There isnt a param(or params)');

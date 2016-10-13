@@ -15,7 +15,7 @@ describe('getGamma', () => {
     describe('getGamma without param', function() {
       it('Response should show exception', function() {
         let statistics = new Statistics();
-        assert.throws(function() { statistics.getGamma() }, Error, 'There isnt a param');
+        assert.throws(function() { statistics.getGamma(); }, Error, 'There isnt a param');
       });
     });
 
@@ -23,7 +23,7 @@ describe('getGamma', () => {
       it('Response should show exception', function() {
         let numberTest = 'Hola';
         let statistics = new Statistics();
-        assert.throws(function() { statistics.getGamma(numberTest) }, Error, 'The param isn´t a number');
+        assert.throws(function() { statistics.getGamma(numberTest); }, Error, 'The param isn´t a number');
       });
     });
 
@@ -31,7 +31,7 @@ describe('getGamma', () => {
       it('Response should show exception', function() {
         let numberTest = -5;
         let statistics = new Statistics();
-        assert.throws(function() { statistics.getGamma(numberTest) }, Error, 'The param is a negative number');
+        assert.throws(function() { statistics.getGamma(numberTest); }, Error, 'The param is a negative number');
       });
     });
 
@@ -112,6 +112,57 @@ describe('getT', () => {
         done();
     });
 
+    // way 1-2
+    describe('getT with dof null', function () {
+      it('Should response with \"There isnt a param(or params)\"', function () {
+        let dof = null;
+        let x = 1.1;
+        let statistics = new Statistics();
+        assert.throws(function() { statistics.getT(dof, x); }, Error, 'There isnt a param(or params)');
+      });
+    });
+
+    // way 1-3-2
+    describe('getT with X null', function () {
+      it('Should response with \"There isnt a param(or params)\"', function () {
+        let dof = 9;
+        let x = null;
+        let statistics = new Statistics();
+        assert.throws(function() { statistics.getT(dof, x); }, Error, 'There isnt a param(or params)');
+      });
+    });
+
+    // way 1-3-4-5
+    describe('getT when dof is NOT a number', function () {
+      it('Should response with \"A param(or params) isn´t a number\"', function () {
+        let dof = 'test';
+        let x = 1.1;
+        let statistics = new Statistics();
+        assert.throws(function() { statistics.getT(dof, x); }, Error, 'A param(or params) isn´t a number');
+      });
+    });
+
+    // way 1-3-4-6-5
+    describe('getT when X is NOT a number', function () {
+      it('Should response with \"A param(or params) isn´t a number\"', function () {
+        let dof = 9;
+        let x = 'test';
+        let statistics = new Statistics();
+        assert.throws(function() { statistics.getT(dof, x); }, Error, 'A param(or params) isn´t a number');
+      });
+    });
+
+      // way 1-3-4-6-7-8
+      describe('getT when dof is less than 0 (dof<0)', function () {
+        it('Should response with \"dof is a negative number\"', function () {
+          let dof = -1;
+          let x = 1.1;
+          let statistics = new Statistics();
+          assert.throws(function() { statistics.getT(dof, x); }, Error, 'dof is a negative number');
+        });
+      });
+      
+      // way 1-3-4-6-7-9-10-11-13-11-12-14-15-14-16-17-18-19-10-11-13-11-12-14-15-14-16-17-18-19-20
     describe('getT with dof=9 and xi=1.1', function () {
         it('Response should show 0.35006', function () {
             let dof = 9;
