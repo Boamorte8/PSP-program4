@@ -14,7 +14,7 @@ function getRanges(req, res) {
   res.json(data);
   // res.json(list);
 }else {
-  res.json(null)
+  res.json(null);
 }
 
 }
